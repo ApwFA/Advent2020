@@ -1,5 +1,4 @@
-function Part1 {
-    $lines = ([IO.File]::ReadAllLines("C:\Temp\day1.txt"))
+function Part1($lines) {
     for($i = 0; $i -lt $lines.Count; $i++)
     {
         $x = $lines[$i] -as [int]
@@ -8,15 +7,12 @@ function Part1 {
             $y = $lines[$j] -as [int]
             if ($x + $y -eq 2020)
             {
-                $result = $x * $y
-                Write-Host $result
-                break;
+                return $x * $y;
             }
         }
     }
 }
-function Part2 {
-    $lines = ([IO.File]::ReadAllLines("C:\Temp\day1.txt"))
+function Part2($lines) {
     for($i = 0; $i -lt $lines.Count; $i++)
     {
         $x = $lines[$i] -as [int]
@@ -28,13 +24,13 @@ function Part2 {
                 $z = $lines[$k] -as [int]
                 if ($x + $y + $z -eq 2020)
                 {
-                    $result = $x * $y * $z
-                    Write-Host $result
-                    break;
+                    return $x * $y * $z
                 }
             }
         }
     }
 }
-Part1
-Part2
+$lines = ([IO.File]::ReadAllLines("C:\Dev\Advent2020\Day1Input.txt"))
+$result1 = Part1 $lines
+$result2 = Part2 $lines
+Write-Host $result1 $result2
