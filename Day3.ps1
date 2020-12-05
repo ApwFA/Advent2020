@@ -1,10 +1,12 @@
 function Part1($lines, $length, $xIncrement, $yIncrement) {
     $trees = 0
-    for($i = 0; $i -lt $lines.Count; $i = $i + $yIncrement)
+    $loop = 0
+    for($yCoord = 0; $yCoord -lt $lines.Count; $yCoord = $yCoord + $yIncrement)
     {
-        if($lines[$i][($i * $xIncrement) % $length] -eq '#') {
+        if($lines[$yCoord][($loop * $xIncrement) % $length] -eq '#') {
             $trees++
         }
+        $loop++
     }
     return $trees
 }
