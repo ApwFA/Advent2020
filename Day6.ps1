@@ -20,6 +20,4 @@ function Part2($text) {
     return $groupCount
 }
 $text = ([IO.File]::ReadAllText("C:\Dev\Advent2020\Day6Input.txt"))
-$result1 = Part1 $text
-$result2 = Part2 $text
-Write-Host $result1 $result2
+Write-Host (Part1 $text) (Part2 $text)
